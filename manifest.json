@@ -1,16 +1,18 @@
 {
-  "name": "GPT-3 Writer",
-  "description": "Write a blog post in the style of your favorite thinker anywhere!",
+  "name": "Your personal fitness trainer",
+  "description": "Tell us what you want to train today and get a fresh workout and meal plan on demand!",
   "version": "1.0",
   "manifest_version": 3,
   "icons": {
-    "48": "assets/48.png",
-    "72": "assets/72.png",
-    "96": "assets/96.png",
-    "144": "assets/144.png"
+    "48": "assets/48.svg",
+    "72": "assets/48.svg",
+    "96": "assets/48.svg",
+    "144": "assets/48.svg"
+   
   },
   "action": {
     "default_popup": "index.html",
-    "default_title": "Generate blog post"
-  }
+    "default_title": "Generate a fresh gym workout now"
+  },
+  "permissions": ["contextMenus", "tabs", "storage"]
 }
