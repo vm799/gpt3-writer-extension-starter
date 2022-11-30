@@ -1,9 +1,3 @@
-
-
-const encode = (input) => {
-    return btoa(input);
-}
-
 const checkForKey = () => {
     return new Promise((resolve, reject) =>{
         chrome.storage.local.get(['openai-key'], (result) => {
@@ -11,6 +5,12 @@ const checkForKey = () => {
         })
     })
 }
+
+const encode = (input) => {
+    return btoa(input);
+}
+
+
 
 const saveKey =  () => {
     const input = document.getElementById('key_input');

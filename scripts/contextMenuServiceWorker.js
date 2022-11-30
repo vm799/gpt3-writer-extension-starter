@@ -52,7 +52,7 @@ return completion.choices.pop();
 const generateCompletionAction = async (info) => {
     try {
 
-        sendMessgae ('generating...');
+        sendMessage ('generating...');
 
         const { selectionText } = info;
         const basePromptPrefix =
