@@ -1,21 +1,21 @@
-const insert = (insert) => {
+// const insert = (insert) => {
 
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) =>{
-    if (request.message === 'inject') {
-        const { content } = request;
+// chrome.runtime.onMessage.addListener((request, sender, sendResponse) =>{
+//     if (request.message === 'inject') {
+//         const { content } = request;
 
-        const result = insert (content);
+//         const result = insert (content);
 
-        if (!result) {
-            sendResponse({ status: 'failed' });
-        }
+//         if (!result) {
+//             sendResponse({ status: 'failed' });
+//         }
 
-        console.log(content);
-        sendResponse({ status: 'success' })
-    }
-});
-}
+//         console.log(content);
+//         sendResponse({ status: 'success' })
+//     }
+// });
+// }
 
 const insert = (content) => {
     const elements = document.getElementsByClassName('droid');
