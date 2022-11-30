@@ -9,6 +9,22 @@ resolve(decodedkey);
 })
 }
 
+const sendMessage = (content) =>{
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const activeTab = tabs[0].id;
+
+        chrome.tabs.sendMessage(
+            activeTab,
+            { message: 'inject', content },
+            (response) => {
+                if (response.status === 'failed') {
+                    console.log('injection failed.');
+                }
+            }
+        )
+    })
+}
+
 const generate = async (prompt) => {
 const key = await getKey();
 const url = 'https://api.openai.com/v1/completions';
@@ -35,6 +51,9 @@ return completion.choices.pop();
 
 const generateCompletionAction = async (info) => {
     try {
+
+        sendMessgae ('generating...');
+
         const { selectionText } = info;
         const basePromptPrefix =
         `
@@ -53,8 +72,10 @@ With the body part given,
 
 const baseCompletion = await generate(`${basePromptPrefix}${selectionText}`);
 console.log(baseCompletion.text); 
+sendMessage(baseCompletion.text);
 } catch (error) {
         console.log(error);
+        sendMessage(error.toString());
     }
  };
 
