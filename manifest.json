@@ -4,15 +4,19 @@
   "version": "1.0",
   "manifest_version": 3,
   "icons": {
-    "48": "assets/48.svg",
-    "72": "assets/48.svg",
-    "96": "assets/48.svg",
-    "144": "assets/48.svg"
+    "48": "assets/pt_1.png",
+    "72": "assets/pt_1.png",
+    "96": "assets/pt_1.png",
+    "144": "assets/pt_1.png"
    
   },
   "action": {
     "default_popup": "index.html",
     "default_title": "Generate a fresh gym workout now"
+  },
+
+  "background": {
+    "service_worker": "scripts/contextMenuServiceWorker.js"
   },
   "permissions": ["contextMenus", "tabs", "storage"]
 }
