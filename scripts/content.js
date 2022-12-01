@@ -5,6 +5,7 @@ const insert = (content) => {
         return;
     }
     const element = elements[0];
+    
     const pToRemove = element.childNodes[0];
     pToRemove.remove();
 
@@ -27,7 +28,8 @@ const insert = (content) => {
 return true;
 };
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) =>{
+chrome.runtime.onMessage.addListener(
+    (request, sender, sendResponse) =>{
     if (request.message === 'inject') {
         const { content } = request;
 
