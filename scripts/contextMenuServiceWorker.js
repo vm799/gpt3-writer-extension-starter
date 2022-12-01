@@ -1,9 +1,11 @@
+
 const getKey = () => {
+
 return new Promise((resolve, reject) => {
-    chrome.storage.local.get(['openai-key'], (result) => {
+chrome.storage.local.get(['openai-key'], (result) => {
         if (result['openai-key']){
-const decodedkey = atob(result['openai-key']);
-resolve(decodedkey);
+const decodedKey = atob(result['openai-key']);
+resolve(decodedKey);
         }
     });
 })
@@ -41,7 +43,7 @@ body:JSON.stringify({
     model: 'text-davinci-003',
     prompt: prompt,
     max_tokens: 1250,
-    temperature: 0.7,
+    temperature: 0.2,
 }),
 });
 

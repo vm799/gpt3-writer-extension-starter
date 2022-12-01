@@ -1,22 +1,3 @@
-// const insert = (insert) => {
-
-
-// chrome.runtime.onMessage.addListener((request, sender, sendResponse) =>{
-//     if (request.message === 'inject') {
-//         const { content } = request;
-
-//         const result = insert (content);
-
-//         if (!result) {
-//             sendResponse({ status: 'failed' });
-//         }
-
-//         console.log(content);
-//         sendResponse({ status: 'success' })
-//     }
-// });
-// }
-
 const insert = (content) => {
     const elements = document.getElementsByClassName('droid');
 
@@ -27,6 +8,8 @@ const insert = (content) => {
     const pToRemove = element.childNodes[0];
     pToRemove.remove();
 
+    const splitContent = content.split('\n');
+    
     splitContent.forEach((content) => {
         const p = document.createElement('p');
       
@@ -45,3 +28,21 @@ const insert = (content) => {
 
 return true;
 }
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) =>{
+    if (request.message === 'inject') {
+        const { content } = request;
+
+        const result = insert (content);
+
+        if (!result) {
+            sendResponse({ status: 'failed' });
+        }
+
+        console.log(content);
+        sendResponse({ status: 'success' })
+    }
+});
+
+
+
