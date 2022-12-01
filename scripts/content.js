@@ -1,3 +1,14 @@
+chrome.runtime.onMessage.addListener(
+    (request, sender, sendResponse) =>{
+    if (request.message === 'inject') {
+        const { content } = request;
+
+        console.log(content);
+        sendResponse({ status: 'success' })
+    }
+});
+
+
 const insert = (content) => {
     const elements = document.getElementsByClassName('droid');
 
@@ -5,7 +16,7 @@ const insert = (content) => {
         return;
     }
     const element = elements[0];
-    
+
     const pToRemove = element.childNodes[0];
     pToRemove.remove();
 
