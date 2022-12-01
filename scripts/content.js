@@ -9,7 +9,7 @@ const insert = (content) => {
     pToRemove.remove();
 
     const splitContent = content.split('\n');
-    
+
     splitContent.forEach((content) => {
         const p = document.createElement('p');
       
@@ -24,16 +24,14 @@ const insert = (content) => {
         element.appendChild(p);
       });
 
-
-
 return true;
-}
+};
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) =>{
     if (request.message === 'inject') {
         const { content } = request;
 
-        const result = insert (content);
+        const result = insert(content);
 
         if (!result) {
             sendResponse({ status: 'failed' });
